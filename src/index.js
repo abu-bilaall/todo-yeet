@@ -1,4 +1,5 @@
 import("./index.css");
+import trashSVG from "../assets/icons/trash.svg";
 
 const plusIcons = document.querySelectorAll(".plus");
 
@@ -9,7 +10,7 @@ if (!window.hasAddedListeners) {
       if (document.querySelector(".category-form")) {
         return;
       }
-      
+
       // if not, initialize the necessary form elements
       const container = document.createElement("div");
       container.setAttribute("class", "category-form");
@@ -73,6 +74,46 @@ categoryContainers.forEach((categoryContainer) => {
   categoryContainer.addEventListener("click", (event) => {
     if (event.target.matches("#cancel-btn")) {
       document.querySelector(".category-form").remove();
+    }
+  });
+});
+
+const categoryLists = document.querySelectorAll(".category-lists");
+
+categoryLists.forEach((list) => {
+  list.addEventListener("mouseover", (event) => {
+    if (
+      event.target.matches("li") &&
+      !event.target.querySelector("#delete-item")
+    ) {
+      const deleteIcon = document.createElement("img");
+      deleteIcon.setAttribute("id", "delete-item");
+      deleteIcon.setAttribute("src", trashSVG);
+      deleteIcon.setAttribute('width', '18px');
+      deleteIcon.setAttribute('height', 'auto');
+      deleteIcon.setAttribute('title', 'Delete');
+      event.target.appendChild(deleteIcon);
+    }
+  });
+
+  list.addEventListener("mouseout", (event) => {
+    if (event.target.matches("li")) {
+      setTimeout(() => {
+        const deleteIcon = event.target.querySelector("#delete-item");
+        if (
+          deleteIcon &&
+          !event.target.matches(":hover") &&
+          !deleteIcon.matches(":hover")
+        ) {
+          deleteIcon.remove();
+        }
+      }, 200); // Delay to prevent instant removal
+    }
+  });
+
+  list.addEventListener("click", (event) => {
+    if (event.target.matches("#delete-item")) {
+      event.target.parentElement.remove(); // Delete the entire <li>
     }
   });
 });
