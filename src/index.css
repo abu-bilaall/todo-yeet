@@ -95,14 +95,14 @@ body {
 
 h1 {
   text-align: center;
-  color: white;
+  color: wheat;
   letter-spacing: 1px;
 }
 
 main {
   flex: auto;
   display: grid;
-  grid-template-columns: 0.3fr 2fr;
+  grid-template-columns: 250px 2fr;
 }
 
 #sidebar {
@@ -126,12 +126,52 @@ li {
   list-style-type: none;
 }
 
-.subtitle {
+.sub {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
   color: white;
+}
+
+.subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input {
+  padding: 6px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.btns {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+button {
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+button#add-btn,
+button#cancel-btn {
+  font-weight: 700;
+  width: 80px;
+}
+
+button#add-btn {
+  background-color: #2EF48A;
+}
+
+button#cancel-btn {
+  background-color: #F4A261	;
 }
 
 .first {
