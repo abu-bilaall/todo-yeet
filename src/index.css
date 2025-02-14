@@ -124,6 +124,10 @@ ul {
 
 li {
   list-style-type: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sub {
@@ -138,6 +142,12 @@ li {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.plus,
+li,
+button {
+  cursor: pointer;
 }
 
 input {
@@ -167,11 +177,11 @@ button#cancel-btn {
 }
 
 button#add-btn {
-  background-color: #2EF48A;
+  background-color: #2ef48a;
 }
 
 button#cancel-btn {
-  background-color: #F4A261	;
+  background-color: #f4a261;
 }
 
 .first {
