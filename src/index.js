@@ -47,6 +47,7 @@ if (!window.hasAddedListeners) {
   window.hasAddedListeners = true;
 }
 
+// handling category addition
 const categoryContainers = document.querySelectorAll(".subtitle");
 categoryContainers.forEach((categoryContainer) => {
   categoryContainer.addEventListener("click", (event) => {
@@ -78,8 +79,8 @@ categoryContainers.forEach((categoryContainer) => {
   });
 });
 
+// handling category deletion
 const categoryLists = document.querySelectorAll(".category-lists");
-
 categoryLists.forEach((list) => {
   list.addEventListener("mouseover", (event) => {
     if (
@@ -89,9 +90,9 @@ categoryLists.forEach((list) => {
       const deleteIcon = document.createElement("img");
       deleteIcon.setAttribute("id", "delete-item");
       deleteIcon.setAttribute("src", trashSVG);
-      deleteIcon.setAttribute('width', '18px');
-      deleteIcon.setAttribute('height', 'auto');
-      deleteIcon.setAttribute('title', 'Delete');
+      deleteIcon.setAttribute("width", "18px");
+      deleteIcon.setAttribute("height", "auto");
+      deleteIcon.setAttribute("title", "Delete");
       event.target.appendChild(deleteIcon);
     }
   });
@@ -116,4 +117,20 @@ categoryLists.forEach((list) => {
       event.target.parentElement.remove(); // Delete the entire <li>
     }
   });
+});
+
+function loadStyle(page) {
+  import(`./${page}.css`)
+    .then(() => {
+      console.log(`${page}.css loaded`);
+    })
+    .catch((err) => console.error(`Failed to load ${page}.css`, err));
+}
+
+// handling yeets of the day
+import { loadTodayYeets } from "./today-module.js";
+const todayYeets = document.querySelector("#today-yeets");
+todayYeets.addEventListener("click", () => {
+  loadTodayYeets();
+  loadStyle("today");
 });
