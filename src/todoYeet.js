@@ -1,35 +1,40 @@
+let todoYeets = [];
 class todoYeet {
-    constructor(title, dueDate) {
-        this.title = title;
-        this.dueDate = dueDate;
-        this.category = 'Default';
-    }
+  constructor(title) {
+    this.title = title;
+    this.dueDate = ""; // today's date
+    this.category = "Personal";
+  }
 
-    updateDueDate(date) {
-        this.dueDate = date;
-    }
+  updateDueDate(date) {
+    this.dueDate = date;
+  }
 
-    setCategory(category) {
-        this.category = category;
-    }
+  setCategory(category) {
+    this.category = category;
+  }
 
-    status = 'pending';
-    setStatus(state) {
-        this.status = state;
-    }
+  status = "pending";
+  setStatus(state) {
+    this.status = state;
+  }
 
-    setDescription(descriptionText) {
-        return descriptionText;
-    }
-    
-    yeetTags = [];
-    setTags(tag) {
-        this.yeetTags.push(tag);
-    }
+  setDescription(descriptionText) {
+    return descriptionText;
+  }
+
+  yeetTags = [];
+  setTags(tag) {
+    this.yeetTags.push(tag);
+  }
 }
 
-function createTodo (title, date) {
-    return todoYeet (title, date);
+function createYeet(title) {
+  return new todoYeet(title);
 }
 
-export { createTodo };
+function addToYeets(yeet) {
+  todoYeets.push(yeet);
+}
+
+export { createYeet, addToYeets, todoYeets };
