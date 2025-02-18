@@ -84,8 +84,6 @@ body {
     "Open Sans",
     "Helvetica Neue",
     sans-serif;
-  background-image: url(../assets/images/dark-bg-image.jpg);
-  background-size: cover;
   color: white;
 
   display: flex;
@@ -113,6 +111,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+#content {
+  background-image: url(../assets/images/dark-bg-image.jpg);
+  background-size: cover;
 }
 
 ul {
