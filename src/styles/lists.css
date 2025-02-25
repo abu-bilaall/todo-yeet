@@ -1,0 +1,41 @@
+#content {
+  background-image: none;
+  background-color: #000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#list-title {
+    color: white;
+    letter-spacing: normal;
+    text-align: left;
+    margin: 10px 30px;
+    padding: 8px 24px;
+
+    background-color: #22252a;
+    border-radius: 20px;
+    width: fit-content;
+}
+
+#yeet-category-container {
+    background-color: #22252a;
+    padding: 16px;
+    margin: 8px 30px 40px;
+    border-radius: 16px;
+    width: 25vw;
+    flex: auto;
+}
+
+.yeetsList > li {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    align-items: center;
+
+    background-color: #ffffff30;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
