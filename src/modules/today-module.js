@@ -1,13 +1,4 @@
-function clearPage() {
-  // clear contents
-  const content = document.querySelector("#content");
-
-  if (content.firstChild) {
-    while (content.firstChild) {
-      content.firstChild.remove();
-    }
-  }
-}
+import { clearPage } from "./clearPage";
 
 export function loadTodayYeets() {
   const content = document.querySelector("#content");
