@@ -1,16 +1,38 @@
 import { todoYeets } from "./todoYeet";
+import { clearPage } from "./clearPage";
 
-console.log(todoYeets);
+export function listListener(event) {
+  const content = document.querySelector("#content");
+  if (content.firstChild) clearPage();
 
-export function listsListener(lists) {
-  lists.addEventListener("click", (event) => {
-    const targetID = event.target.id;
-    if (targetID === "Personal") {
-      console.log("Clicked Personal.");
-    } else if (targetID === "Work") {
-      console.log("Clicked Work");
-    } else {
-      console.log("Clicked School");
-    }
+  const targetID = event.target.id;
+
+  // list title
+  const listTitle = document.createElement("h2");
+  listTitle.setAttribute("id", "list-title");
+  listTitle.textContent = targetID;
+
+  // list of yeets container
+  const categoryContainer = document.createElement("div");
+  categoryContainer.id = "yeet-category-container";
+
+  // list of yeets
+  const listOfYeets = document.createElement("ul");
+  listOfYeets.classList.add("yeetsList");
+
+  // adding yeets to page
+  const yeets = todoYeets.filter((yeet) => yeet.category === targetID);
+  yeets.forEach((yeet) => {
+    let yeetEntry = document.createElement("input");
+    yeetEntry.type = "checkbox";
+
+    let yeetItem = document.createElement("li");
+    let yeetLabel = document.createTextNode(` ${yeet.title}`);
+    yeetItem.append(yeetEntry, yeetLabel);
+
+    listOfYeets.append(yeetItem);
   });
+
+  categoryContainer.appendChild(listOfYeets);
+  content.append(listTitle, categoryContainer);
 }
