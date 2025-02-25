@@ -1,4 +1,4 @@
-import("./index.css");
+import("./styles.css");
 import trashSVG from "../assets/icons/trash.svg";
 
 const plusIcons = document.querySelectorAll(".plus");
@@ -120,7 +120,7 @@ categoryLists.forEach((list) => {
 });
 
 function loadStyle(page) {
-  import(`./${page}.css`)
+  import(`./styles/${page}.css`)
     .then(() => {
       console.log(`${page}.css loaded`);
     })
@@ -128,9 +128,17 @@ function loadStyle(page) {
 }
 
 // handling yeets of the day
-import { loadTodayYeets } from "./today-module.js";
+import { loadTodayYeets } from "./modules/today-module.js";
 const todayYeets = document.querySelector("#today-yeets");
 todayYeets.addEventListener("click", () => {
   loadTodayYeets();
   loadStyle("today");
+});
+
+// categorical yeets logic
+import { listListener } from "./modules/lists.js";
+const lists = document.querySelector("#lists");
+lists.addEventListener("click", (event) => {
+  listListener(event);
+  loadStyle("lists");
 });
