@@ -58,6 +58,7 @@ categoryContainers.forEach((categoryContainer) => {
       if (newListTitle) {
         const newList = document.createElement("li");
         newList.textContent = newListTitle;
+        newList.id = newListTitle;
 
         const categoryList = categoryContainer.nextElementSibling;
         categoryList.appendChild(newList);
@@ -137,9 +138,10 @@ todayYeets.addEventListener("click", () => {
 
 // categorical yeets logic
 import { listListener, toggleCheckbox } from "./modules/lists.js";
-const lists = document.querySelector("#lists");
+const lists = document.querySelector(".category-lists");
 lists.addEventListener("click", (event) => {
-  if (event.target.id) {
+  let targetID = event.target.id;
+  if (targetID && targetID !== "delete-item") {
     listListener(event);
     loadStyle("lists");
     setTimeout(toggleCheckbox, 1500);
