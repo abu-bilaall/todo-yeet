@@ -139,7 +139,9 @@ todayYeets.addEventListener("click", () => {
 import { listListener, toggleCheckbox } from "./modules/lists.js";
 const lists = document.querySelector("#lists");
 lists.addEventListener("click", (event) => {
-  listListener(event);
-  loadStyle("lists");
-  setTimeout(toggleCheckbox, 1500);
+  if (event.target.id) {
+    listListener(event);
+    loadStyle("lists");
+    setTimeout(toggleCheckbox, 1500);
+  }
 });
