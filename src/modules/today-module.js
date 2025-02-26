@@ -2,6 +2,8 @@ import { clearPage } from "./clearPage";
 
 export function loadTodayYeets() {
   const content = document.querySelector("#content");
+  content.classList.remove(...content.classList);
+  content.classList.add("today");
   if (content.firstChild) clearPage();
 
   const dateContainer = document.createElement("div");

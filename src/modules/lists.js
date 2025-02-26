@@ -3,6 +3,8 @@ import { clearPage } from "./clearPage";
 
 export function listListener(event) {
   const content = document.querySelector("#content");
+  content.classList.remove(...content.classList);
+  content.classList.add("lists");
   if (content.firstChild) clearPage();
 
   const targetID = event.target.id;
