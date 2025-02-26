@@ -26,13 +26,30 @@ export function listListener(event) {
     let yeetEntry = document.createElement("input");
     yeetEntry.type = "checkbox";
 
+    let customCheckbox = document.createElement("span");
+    customCheckbox.classList.add("custom-checkbox");
+
     let yeetItem = document.createElement("li");
-    let yeetLabel = document.createTextNode(` ${yeet.title}`);
-    yeetItem.append(yeetEntry, yeetLabel);
+    let yeetLabel = document.createTextNode(`${yeet.title}`);
+    yeetItem.append(yeetEntry, customCheckbox, yeetLabel);
 
     listOfYeets.append(yeetItem);
   });
 
   categoryContainer.appendChild(listOfYeets);
   content.append(listTitle, categoryContainer);
+}
+
+export function toggleCheckbox() {
+  const customCheckboxes = document.querySelectorAll(".custom-checkbox");
+  customCheckboxes.forEach((customCheckbox) => {
+    customCheckbox.addEventListener("click", (event) => {
+      const yeetEntry = event.target.previousSibling;
+      if (yeetEntry.checked) {
+        yeetEntry.checked = false;
+      } else {
+        yeetEntry.checked = true;
+      }
+    });
+  });
 }
