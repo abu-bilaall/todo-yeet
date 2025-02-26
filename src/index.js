@@ -136,9 +136,10 @@ todayYeets.addEventListener("click", () => {
 });
 
 // categorical yeets logic
-import { listListener } from "./modules/lists.js";
+import { listListener, toggleCheckbox } from "./modules/lists.js";
 const lists = document.querySelector("#lists");
 lists.addEventListener("click", (event) => {
   listListener(event);
   loadStyle("lists");
+  setTimeout(toggleCheckbox, 1500);
 });
