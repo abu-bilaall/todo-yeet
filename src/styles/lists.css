@@ -42,11 +42,6 @@
   font-weight: 700;
 }
 
-ul {
-  padding: 0;
-  padding-left: 8px;
-}
-
 .checkbox-container {
   display: flex;
 }
